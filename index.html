@@ -67,20 +67,19 @@
                 el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
             });
             localStorage.setItem('language', lang); // Save preference
+
+            // Update navigation links to maintain language selection
+            document.querySelectorAll('nav a').forEach(link => {
+                let url = new URL(link.href);
+                url.searchParams.set('lang', lang);
+                link.href = url.toString();
+            });
         }
 
-        // Load saved language on page load and adjust navigation links
+        // Load saved language on page load
         document.addEventListener("DOMContentLoaded", () => {
             const savedLang = localStorage.getItem('language') || 'en';
             setLanguage(savedLang);
-            
-            // Adjust links to maintain language
-            document.querySelectorAll('nav a').forEach(link => {
-                let href = link.getAttribute('href');
-                if (href.includes('.html')) {
-                    link.setAttribute('href', href + '?lang=' + savedLang);
-                }
-            });
         }); 
     </script>
 </body>
