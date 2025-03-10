@@ -56,16 +56,18 @@ footer .social-links a {
     color: #2563EB;
     text-decoration: none;
     border-radius: 5px;
+}
 
-    .icon {
+
+.icon {
     width: 20px;  
     height: 20px;
     margin-right: 8px; 
     vertical-align: middle;
 }
 
-    <div class="split-background">
-    <.split-background {
+
+.split-background {
     background: linear-gradient(to right, #ff91c0 50%, #3b82f6 50%);
     display: flex;
     justify-content: center;
@@ -74,9 +76,5 @@ footer .social-links a {
     height: auto; 
     padding: 20px;
     border-radius: 10px; 
-}>
-</div>
-
-
-
 }
+
