@@ -64,6 +64,19 @@ footer .social-links a {
     vertical-align: middle;
 }
 
+    <div class="split-background">
+    <.split-background {
+    background: linear-gradient(to right, #ff91c0 50%, #3b82f6 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto; 
+    padding: 20px;
+    border-radius: 10px; 
+}>
+</div>
+
 
 
 }
