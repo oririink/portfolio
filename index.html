@@ -61,14 +61,12 @@
             </div>
         </footer>
     </div>
-    <script>
+   <script>
         function setLanguage(lang) {
             document.querySelectorAll('[data-lang]').forEach(el => {
                 el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
             });
-            localStorage.setItem('language', lang); // Save preference
-
-            // Update navigation links to maintain language selection
+            localStorage.setItem('language', lang);
             document.querySelectorAll('nav a').forEach(link => {
                 let url = new URL(link.href);
                 url.searchParams.set('lang', lang);
@@ -76,11 +74,23 @@
             });
         }
 
-        // Load saved language on page load
         document.addEventListener("DOMContentLoaded", () => {
-            const savedLang = localStorage.getItem('language') || 'en';
+            const urlParams = new URLSearchParams(window.location.search);
+            const savedLang = urlParams.get('lang') || localStorage.getItem('language') || 'en';
             setLanguage(savedLang);
-        }); 
+        });
     </script>
+    <style>
+        .banner img {
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
 </body>
 </html>
