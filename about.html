@@ -24,6 +24,25 @@
             <p data-lang="en">Hi, I'm Ricardo “Oriri” Oliveira, a Brazilian writer and artist. I am currently publishing Floom and Lovelace, a comedic gag series about an eccentric father, a grumpy DJ, and a baby with too much energy.</p>
             <p data-lang="pt" style="display: none;">Olá, sou Ricardo "Oriri" Oliveira, um escritor e artista brasileiro. Atualmente, estou publicando Floom e Lovelace, uma série de comédia sobre um pai excêntrico, um DJ rabugento e um bebê cheio de energia.</p>
         </section>
+         <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+            });
+            localStorage.setItem('language', lang);
+            document.querySelectorAll('nav a').forEach(link => {
+                let url = new URL(link.href);
+                url.searchParams.set('lang', lang);
+                link.href = url.toString();
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const savedLang = urlParams.get('lang') || localStorage.getItem('language') || 'en';
+            setLanguage(savedLang);
+        });
+    </script>
     </div>
 </body>
 </html>
