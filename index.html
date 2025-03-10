@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-</div>
     <link rel="icon" type="image/png" href="Icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,34 +12,55 @@
         <header>
             <h1>Oriri</h1>
             <nav>
-                <a href="about.html">About</a>
-                <a href="faq.html">FAQ</a>
-                <a href="contact.html">Contact</a>
+                <a href="about.html" data-lang="en">About</a>
+                <a href="about.html" data-lang="pt" style="display: none;">Sobre</a>
+                <a href="faq.html" data-lang="en">FAQ</a>
+                <a href="faq.html" data-lang="pt" style="display: none;">Perguntas</a>
+                <a href="contact.html" data-lang="en">Contact</a>
+                <a href="contact.html" data-lang="pt" style="display: none;">Contato</a>
             </nav>
+            <div class="language-switcher">
+                <a href="#" onclick="setLanguage('en')">English</a> |
+                <a href="#" onclick="setLanguage('pt')">Português</a>
+            </div>
         </header>
         <section class="banner">
             <img src="Banner.png" alt="Banner Image">
         </section>
-        
-     <section class="buttons">
-             <a href="https://www.webtoons.com/p/community/en/u/_nf8fkh" class="btn webcomic">Read my Comics</a>
-         </section>
-
-        
+        <section class="buttons">
+            <a href="https://www.webtoons.com/p/community/en/u/_nf8fkh" class="btn webcomic" data-lang="en">Read my Comics</a>
+            <a href="https://www.webtoons.com/p/community/en/u/_nf8fkh" class="btn webcomic" data-lang="pt" style="display: none;">Leia meus Quadrinhos</a>
+        </section>
         <footer>
             <div class="social-links">
-                <a href="https://www.threads.net/@oririink"class="btn">
-        <img src="threads.svg" alt="Threads" class="icon"> THREADS</a>
-
-                  <a href="https://www.instagram.com/oririink/"class="btn">
-        <img src="instagram.svg" alt="Instagram" class="icon"> INSTAGRAM
-    </a>
-                <a href="https://www.youtube.com/@oririink"class="btn">
-        <img src="youtube.svg" alt="YouTube" class="icon"> YOUTUBE</a>
-                <a href="https://www.tiktok.com/@oririink"class="btn">
-        <img src="tiktok.svg" alt="TikTok" class="icon"> TIKTOK</a>
+                <a href="https://www.threads.net/@oririink" class="btn">
+                    <img src="threads.svg" alt="Threads" class="icon"> THREADS
+                </a>
+                <a href="https://www.instagram.com/oririink/" class="btn">
+                    <img src="instagram.svg" alt="Instagram" class="icon"> INSTAGRAM
+                </a>
+                <a href="https://www.youtube.com/@oririink" class="btn">
+                    <img src="youtube.svg" alt="YouTube" class="icon"> YOUTUBE
+                </a>
+                <a href="https://www.tiktok.com/@oririink" class="btn">
+                    <img src="tiktok.svg" alt="TikTok" class="icon"> TIKTOK
+                </a>
             </div>
         </footer>
     </div>
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+            });
+            localStorage.setItem('language', lang); // Save preference
+        }
+
+        // Load saved language on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem('language') || 'en';
+            setLanguage(savedLang);
+        }); 
+    </script>
 </body>
 </html>
