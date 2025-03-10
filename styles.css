@@ -67,27 +67,6 @@ footer .social-links a {
 }
 
 
-.split-background {
-    background: linear-gradient(to right, #ff91c0 50%, #3b82f6 50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    border-radius: 10px;
-}
 
-.left-side, .right-side {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.left-side img, .right-side img {
-    max-width: 80%;
-    border-radius: 10px;
-}
 }
 
