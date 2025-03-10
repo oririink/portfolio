@@ -21,7 +21,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+     <div class="container">
         <header>
             <h1>Oriri</h1>
             <nav>
@@ -33,8 +33,8 @@
                 <a href="contact.html" data-lang="pt" style="display: none;">Contato</a>
             </nav>
             <div class="language-switcher">
-                <a href="#" onclick="setLanguage('en')">English</a> |
-                <a href="#" onclick="setLanguage('pt')">Português</a>
+                <a href="#" onclick="setLanguage('en')" style="color: white;">English</a> |
+                <a href="#" onclick="setLanguage('pt')" style="color: white;">Português</a>
             </div>
         </header>
         <section class="banner">
@@ -69,10 +69,18 @@
             localStorage.setItem('language', lang); // Save preference
         }
 
-        // Load saved language on page load
+        // Load saved language on page load and adjust navigation links
         document.addEventListener("DOMContentLoaded", () => {
             const savedLang = localStorage.getItem('language') || 'en';
             setLanguage(savedLang);
+            
+            // Adjust links to maintain language
+            document.querySelectorAll('nav a').forEach(link => {
+                let href = link.getAttribute('href');
+                if (href.includes('.html')) {
+                    link.setAttribute('href', href + '?lang=' + savedLang);
+                }
+            });
         }); 
     </script>
 </body>
