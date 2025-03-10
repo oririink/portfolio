@@ -58,28 +58,12 @@ footer .social-links a {
     border-radius: 5px;
 
     .icon {
-    width: 20px;  /* Adjust size */
+    width: 20px;  
     height: 20px;
-    margin-right: 8px; /* Space between icon and text */
+    margin-right: 8px; 
     vertical-align: middle;
 }
 
-    .language-switcher {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.language-switcher button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.language-switcher img {
-    width: 30px;
-    height: 20px;
-}
 
 
 }
